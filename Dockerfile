@@ -14,3 +14,5 @@ RUN bundle install
 COPY . /pwa-rails
 
 RUN bundle exec rake assets:precompile --trace
+
+RUN bundle exec rails tailwindcss:build
