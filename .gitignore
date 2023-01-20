@@ -39,3 +39,4 @@
 .env.test
 
 .vscode/*
+app/assets/builds/*
