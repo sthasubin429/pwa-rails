@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   authenticated :user do
-    root 'home#index'
+    root 'posts#index'
   end
+
+  resources :posts
 
   unauthenticated :account do
     root to: redirect('/users/sign_in'), as: :unauthenticated_root
   end
+
+  get 'home', to: redirect('/')
 end
