@@ -1,16 +1,18 @@
-<div class="rounded-xl bg-white p-6 my-8 first:mt-2 dark:bg-zinc-800">
-  <h2 class="text-xl"> <%= post.title %> </h2>
-  <p> <%= post.content %> </p>
-  <div class="flex justify-end">
-    <div>
-      <p class="text-end text-sm"> <%= post.user.email %> </p>
-      <p class="text-end text-xs text-gray-500">
-        <% if (Time.zone.now.to_date - post.created_at.to_date).to_i > 1 %>
-          <%= post.created_at.strftime('%b %d, %Y') %>
-        <% else %>
-          <%= time_ago_in_words(post.created_at) %> ago
-        <% end %>
-      </p>
+<%= turbo_frame_tag dom_id(post) do %>
+  <div class="rounded-xl bg-white p-6 my-8 first:mt-2 dark:bg-zinc-800">
+    <h2 class="text-xl"> <%= post.title %> </h2>
+    <p> <%= post.content %> </p>
+    <div class="flex justify-end">
+      <div>
+        <p class="text-end text-sm"> <%= post.user.email %> </p>
+        <p class="text-end text-xs text-gray-500">
+          <% if (Time.zone.now.to_date - post.created_at.to_date).to_i > 1 %>
+            <%= post.created_at.strftime('%b %d, %Y') %>
+          <% else %>
+            <%= time_ago_in_words(post.created_at) %> ago
+          <% end %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

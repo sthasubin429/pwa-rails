@@ -3,5 +3,8 @@
   <h1 class="text-2xl font-medium"> Posts </h1>
 </div>
 <div class="px-2 sm:px-4">
-  <%= render @posts %>
+  <%= turbo_stream_from "posts" %>
+  <%= turbo_frame_tag "posts" do %>
+    <%= render @posts %>
+  <% end %>
 </div>
