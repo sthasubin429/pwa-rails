@@ -1,15 +1,7 @@
-<div class="w-full flex justify-between items-center">
-  <h1>Home</h1>
-  <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-    Logout
-  <% end %>
+<%= render partial: "shared/navbar"%>
+<div class="px-2 sm:px-4">
+  <h1 class="text-2xl font-medium"> Posts </h1>
 </div>
-
-<h2> Posts </h2>
-<% @posts.each do |post| %>
-  <div>
-    <h2> <%= post.title %> </h2>
-    <p> <%= post.content %> </p>
-    <p> <%= post.user.email %> </p>
-  </div>
-<% end %>
+<div class="px-2 sm:px-4">
+  <%= render @posts %>
+</div>
