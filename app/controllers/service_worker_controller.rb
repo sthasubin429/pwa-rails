@@ -6,4 +6,5 @@ class ServiceWorkerController < ApplicationController
 
   # manifest
   def manifest; end
+
 end
