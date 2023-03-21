@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   end
 
   get 'home', to: redirect('/')
+
+  get "/service-worker.js" => "service_worker#service_worker"
+  get "/manifest.json" => "service_worker#manifest"
 end
